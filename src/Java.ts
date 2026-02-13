@@ -1,23 +1,24 @@
-import * as Promise from 'bluebird'
 import * as j from 'java'
 import * as deasync from 'deasync'
 import * as debug from 'debug'
 
 import { EventEmitter } from 'events'
+import { JavaAPI } from './types/JavaApi'
+import { fromNodeCallback } from './utils/fromNodeCallback'
 
-declare module 'java' {
-  export interface NodeAPI {
-    newInstanceAsync (className: string, ...args: any[]): Promise<any>;
-    callStaticMethodAsync (className: string, methodName: string, ...args: any[]): Promise<any>;
+const java: JavaAPI = Object.assign(j, {
+  newInstanceAsync (className: string, ...args: unknown[]) {
+    return fromNodeCallback((callback) => j.newInstance(className, ...args, callback))
+  },
+  callStaticMethodAsync (className: string, methodName: string, ...args: unknown[]) {
+    return fromNodeCallback((callback) => j.callStaticMethod(className, methodName, ...args, callback))
   }
-}
-
-const java: j.NodeAPI = Promise.promisifyAll(j) as j.NodeAPI
+})
 
 let instance: Java = null
 
 export class Java {
-  public java: j.NodeAPI
+  public java: JavaAPI
   public events: EventEmitter
 
   public mavenClasspath: string[] = []
