@@ -9,6 +9,8 @@ small wrapper to work with jdbc in node.
 
 ## prerequisites
 
+tested with node.js 24 and jdk 17.
+
 **node-java**
 
 ```bash
@@ -59,7 +61,7 @@ $ npm install --save @naxmefy/jdbc
     },
     "dependencies": {
       "@naxmefy/jdbc": "^0.1.0",
-      "java": "^0.8.0",
+      "java": "^0.18.0",
       "node-java-maven": "^0.0.12"
     }
 }

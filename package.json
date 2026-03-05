@@ -29,7 +29,7 @@
     "prepublish": "npm run build",
     "maven": "node-java-maven",
     "pretest": "npm run maven",
-    "test": "mocha",
+    "test": "mocha --config test/.mocharc.json",
     "test:coverage": "nyc npm test"
   },
   "java": {
@@ -58,15 +58,14 @@
     "instrument": true
   },
   "devDependencies": {
-    "@types/bluebird": "^3.5.3",
+    "@types/bluebird": "3.5.33",
     "@types/debug": "0.0.29",
     "@types/java": "^0.7.31",
-    "@types/lodash": "^4.14.64",
+    "@types/lodash": "4.14.168",
     "@types/node": "^7.0.29",
     "@types/mocha": "^2.2.41",
     "@types/should": "^8.3.0",
-    "co-mocha": "^1.2.0",
-    "java": "^0.12.1",
+    "java": "^0.18.0",
     "mocha": "^10.2.0",
     "node-java-maven": "^0.1.2",
     "nyc": "^14.1.1",
@@ -83,7 +82,7 @@
     "lodash": ">=4.17.21"
   },
   "peerDependencies": {
-    "java": "^0.12.1"
+    "java": "^0.18.0"
   },
   "optionalDependencies": {
     "node-java-maven": "^0.1.2"

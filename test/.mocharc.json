@@ -1,0 +1,16 @@
+{
+  "exit": true,
+  "colors": true,
+  "require": [
+    "ts-node/register",
+    "should"
+  ],
+  "file": [
+    "test/spec_helper.ts"
+  ],
+  "spec": [
+    "test/JDBC.spec.ts",
+    "test/Java.spec.ts",
+    "test/JVM.spec.ts"
+  ]
+}
